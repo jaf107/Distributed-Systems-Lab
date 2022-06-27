@@ -1,3 +1,4 @@
+1/server/node_modules/
 1/server/node_modules/.bin/mime
 1/server/node_modules/.bin/mime.cmd
 1/server/node_modules/.bin/mime.ps1
@@ -1404,3 +1405,6 @@
 1/server/node_modules/whatwg-url/lib/URLSearchParams.js
 1/server/node_modules/whatwg-url/lib/utils.js
 1/server/node_modules/whatwg-url/lib/VoidFunction.js
+1/server/node_modules/.package-lock.json
+1/server/node_modules/.package-lock.json
+1/server/node_modules/.package-lock.json
