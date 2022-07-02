@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { addStatus } from '../../actions/statusActions';
 import "./Status.css"
 
 const Status = () => {
@@ -11,8 +12,9 @@ const Status = () => {
     e.preventDefault();
     const myForm = new FormData();
     myForm.set("text", text);
-    console.log(text)
+    // console.log(text)
     dispatchEvent(addStatus(myForm));
+    
   }
   const statusDataChange = (e) => {
     setStatus({ ...status, [e.target.name]: e.target.value });
@@ -26,7 +28,7 @@ const Status = () => {
             name='text'
             class="form-control"
             id="exampleFormControlTextarea1"
-            rows="3"
+            rows="2"
             value={text}
             onChange={statusDataChange}
           >

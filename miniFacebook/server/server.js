@@ -8,7 +8,7 @@ process.on("uncaughtException", (err) => {
     process.exit(1);
 });
 
-let port = process.env.port || 3000;
+let port = process.env.port || 4000;
 const server = app.listen(port, () => {
   console.log(`Server is working on http://localhost:${port}`);
 });
