@@ -1,3 +1,4 @@
+miniFacebook/server/node_modules/
 miniFacebook/server/node_modules/.package-lock.json
 miniFacebook/server/node_modules/.bin/mime
 miniFacebook/server/node_modules/.bin/mime.cmd
@@ -1821,4 +1822,4 @@ miniFacebook/server/node_modules/validator/lib/util/merge.js
 miniFacebook/server/node_modules/validator/lib/util/multilineRegex.js
 miniFacebook/server/node_modules/validator/lib/util/toString.js
 miniFacebook/server/node_modules/validator/lib/util/typeOf.js
-miniFacebook/server/routes/userRoute.js
+
