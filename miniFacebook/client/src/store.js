@@ -1,16 +1,19 @@
-import { statusReducer } from './reducers/statusReducers';
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { statusReducer } from './reducers/statusReducers';
+import { userReducer } from "./reducers/userReducers";
 
-const thunk = require('thunk')
-const middleware = [thunk];
 
-const reducer = combineReducers({
+const reducer = combineReducers ({
     status: statusReducer,
+    user: userReducer
   });
 
 let initialState = {
 
 };
+const middleware = [thunk];
 
 const store = createStore(
     reducer,

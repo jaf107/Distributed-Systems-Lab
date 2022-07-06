@@ -8,9 +8,9 @@ import Home from "./components/Home/Home";
 function App() {
   return (
     <div className="App">
-      <Home/>
+      {/* <Home/> */}
       
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" exact element={<Home />}></Route>
           <Route path="/login" exact element={<Login />}></Route >
@@ -19,7 +19,7 @@ function App() {
 
       </BrowserRouter>
       <Outlet></Outlet>
- */}
+
     </div>
   );
 }

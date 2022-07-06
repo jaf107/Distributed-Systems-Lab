@@ -16,18 +16,25 @@ const Header = () => {
 
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
+                <Link class="nav-link" to={'/'}>Home</Link>
+                {/* <a class="nav-link" href="#">Home</a> */}
               </li>
 
             </ul>
-
+            
           </div>
           <div>
-            {/* <Link to=""></Link> */}
+            {/* <Link to="/login</Link> */}
 
           </div>
-          <button class="btn btn-light btn-outline-dark btn m-2 my-sm-0" routerLink="/login" type="submit">Login</button>
-          <button class="btn btn-outline-light m-2 my-sm-0" routerLink="/register" type="submit">Register</button>
+          <Link class="btn btn-light btn-outline-dark btn m-2 my-sm-0 " to="/login">
+            Login
+          </Link>
+          <Link class="btn btn-outline-light m-2 my-sm-0" to="/register">
+            Register
+          </Link>
+          {/* <button class="btn btn-light btn-outline-dark btn m-2 my-sm-0" routerLink="/login" type="submit">Login</button>
+          <button class="btn btn-outline-light m-2 my-sm-0" routerLink="/register" type="submit">Register</button> */}
         </div>
       </nav>
     </div>

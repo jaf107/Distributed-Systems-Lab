@@ -18,7 +18,7 @@ export const statusReducer = (state = { status: [] }, action) => {
         return {
           ...state,
           loading: false,
-          recyclers: action.payload,
+          status: action.payload,
         };
   
       case CREATE_STATUS_FAIL:
@@ -35,7 +35,7 @@ export const statusReducer = (state = { status: [] }, action) => {
         return {
           ...state,
           loading: false,
-          status: action.payload,
+          // status: action.payload,
         };
   
       default:
