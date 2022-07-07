@@ -2,6 +2,10 @@ import React from 'react'
 import Header from '../Header/Header'
 
 const Login = () => {
+  const login = (e) => {
+    e.preventDefault();
+    
+  }
   return (
     <div>
       <Header />
@@ -21,7 +25,7 @@ const Login = () => {
             <input type="checkbox" class="form-check-input" id="exampleCheck1" />
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" onClick={login}>Submit</button>
         </form>
       </div>
 

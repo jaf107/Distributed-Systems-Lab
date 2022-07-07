@@ -15,7 +15,8 @@ const Status = () => {
     e.preventDefault();
     const myForm = new FormData();
     myForm.set("text", statusText);
-    console.log(myForm);
+    console.log(statusText)
+    console.log("Status :",myForm);
     dispatch(addStatus(myForm));
 
   }

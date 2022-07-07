@@ -7,7 +7,7 @@ import {
     GET_STATUS_SUCCESS
 } from '../constants/statusConstants';
 
-const axios = require('axios');
+import axios from "axios";
 axios.defaults.withCredentials = true;
 
 export const getStatus = () => async (dispatch) => {
@@ -25,7 +25,7 @@ export const getStatus = () => async (dispatch) => {
 export const addStatus = (statusData) => async (dispatch) => {
     try {
         dispatch({ type: CREATE_STATUS_REQUEST });
-        const config = { headers: { "Content-Type": "application/form-data" } };
+        const config = { headers: { "Content-Type": "application/json" } };
         console.log(statusData);
         const { data } = await axios.post(`http://localhost:4000/api/v1/status/new`, 
         statusData,
