@@ -1,8 +1,24 @@
 import React from 'react'
+import { Navigate, Route, Routes } from 'react-router'
+import Login from './authentication/Login'
+import Register from './authentication/Register'
+import Home from './Home'
+import Status from './Status'
+import Story from './Story'
 
 const Body = () => {
   return (
-    <div>Body</div>
+    <div>
+      <Routes>
+        <Route path='/home' exact element={<Home/>}></Route>
+        <Route path='/story' exact element={<Story/>}></Route>
+        <Route path='/status' exact element={<Status/>}></Route>
+
+        <Route path='/login' exact element={<Login/>}></Route>
+        <Route path='/register' exact element={<Register/>}></Route>
+        <Route path='/' element={<Navigate to='/home'/>}></Route>
+      </Routes>
+    </div>
   )
 }
 

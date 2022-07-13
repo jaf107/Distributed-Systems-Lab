@@ -4,11 +4,12 @@ import Status from '../Status/Status'
 import Story from '../Story/Story'
 
 const Home = () => {
+    
     return (
         <div>
-            <Header/>
-            <Story/>
-            <Status/>
+            <Header />
+            <Story />
+            <Status />
         </div>
     )
 }
