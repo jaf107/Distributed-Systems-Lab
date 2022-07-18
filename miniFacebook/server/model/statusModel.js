@@ -5,11 +5,11 @@ const statusSchema = mongoose.Schema({
         type: String
     },
 
-    // user:{
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: "User",
-    //     required: true
-    // },
+    user:{
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+        required: true
+    },
     createdAt:{
         type: Date,
         default: Date.now

@@ -56,3 +56,63 @@
  .story .bgpic{
     background-image: url(https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg);
  }
+
+ .myCard{
+  height: 200px;
+  width: 150px;
+ }
+
+ .stories{
+  margin-left: 25%;
+  width: 50rem;
+  height: 15rem;
+  overflow-x: auto;
+  /* display:inline-flex; */
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.card, .card-img, .card-img-overlay{
+  border: transparent;
+  border-radius: 10px;
+}
+
+.card-text{
+  background-color: transparent;
+}
+
+.dot {
+  height: 60px;
+  width: 60px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  border: transparent;
+  display: inline-block;
+  justify-content: center;
+  position: absolute;
+  top: 60%;
+}
+
+.center-dot{
+  display: flex;
+  justify-content: center; 
+}
+
+.mine{
+  margin-top: 10px;
+  margin-right: 20px;
+  width: 50px; 
+  height: 200px; 
+  background-color: #3b5998;
+  -webkit-box-shadow: inset 0px 0px 3px 0px #FFFFFF; 
+  box-shadow: inset 0px 0px 3px 0px #FFFFFF;
+}
+
+#storyUpload{
+  display: block;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  /* background-image: url(https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg); */
+}

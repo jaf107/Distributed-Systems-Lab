@@ -1,42 +1,45 @@
-import React from 'react'
+import React, { Component } from 'react'
 import "./Story.css"
-const Story = () => {
-  return (
-    <div>
-      <div className='container'>
-        <div class="story owl-carousel owl-theme">
-          <div class="story-item item bgpic"
-          // style={"background-image:url(https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg);"}
-          >
-            <div class="rounded"></div>
-            <span>Your Content</span></div>
-          <div class="story-item item bgpic" 
-          // style="background-image:url(https://cdn.pixabay.com/photo/2015/06/19/17/58/sample-815141_960_720.jpg);" 
-          >
-            <div class="rounded"></div>
-            <span>Your Content</span></div>
-          {/* 
-          <div class="story-item item" style="background-image:url(https://petapixel.com/assets/uploads/2012/02/sample1_mini.jpg);">
-            <div class="rounded" F></div>
-            <span>Your Content</span> </div>
-          <div class="story-item item" style="background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR1uJ2UBA9SkxbosVbEjCTYo5FIBlVas-niv68Gfr3bam_EU_P);">
-            <div class="rounded"></div>
-            <span>Your Content</span> </div>
-          <div class="story-item item" style="background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEMIHqfMzKRiZed4BUNOKpPpTYLrDxC3hsiICottRQnNXHFaU3UA);" >
-            <div class="rounded"></div>
-            <span>Your Content</span> </div>
-          <div class="story-item item" style="background-image:url(https://imaging.nikon.com/lineup/lens/f-mount/singlefocal/normal/af-s_50mmf_18g/img/sample/sample1_l.jpg);">
-            <div class="rounded"></div>
-            <span>Your Content</span> </div>
-          <div class="story-item item" style="background-image:url(https://dsim.in/blog/wp-content/uploads/2018/09/Image-3-e1537274947337.jpg);">
-            <div class="rounded"></div>
-            <span>Your Content</span>
-          </div>
-           */}
-        </div>
-      </div>
-    </div>
-  )
-}
+import reynaPic from '../../../assets/reyna.jpg'
 
+class Story extends Component {
+  render() {
+    // var reynaPic = "../../../../public/assets/reyna.jpg";
+    return (
+      <div>
+        <div className='container story '>
+
+          <div className='row'>
+            <div class="card mine text-white col-md-2 bgPic">
+              <div class="card-img"></div>
+              <div class="card-img-overlay center-dot">
+                {/* <input type="file" id="storyUpload" name="files" accept="image/*" /> */}
+                <input type="file"/>
+                <button class="dot" >
+                  <h2 style={{ "color": "#2e4b88" }} >+</h2>
+                </button>
+                <h6 class="card-title" style={{ "margin-top": "8.5rem;" }}></h6>
+              </div>
+            </div>
+            <div className='card mine bg-dark text-white col-md-2' style={{ backgroundImage : `url(${reynaPic}) no-repeat center center fixed`}}>
+              <img src={reynaPic}/>
+              <div class="card-img-overlay">
+                <p class="card-text">Last updated 3 mins ago</p>
+
+                <div class="card-img"></div>
+
+              </div>
+            </div>
+            
+          </div>
+
+
+
+        </div>
+
+
+      </div>
+    )
+  }
+}
 export default Story;

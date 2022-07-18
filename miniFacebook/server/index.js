@@ -5,7 +5,9 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
 const cors = require("cors");
-
+const multer = require('multer');
+const upload = multer();
+app.use(upload.array()); 
 const errorMiddleware = require("./middlewares/error");
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "./config/config.env" });
@@ -13,7 +15,8 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 
 app.use(express.json());
 // app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 // app.use(fileUpload());
 app.use(cors({credentials : true, origin : 'http://localhost:3000'}));
 app.use(function (req, res, next) {
@@ -25,7 +28,8 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
   // Request headers you wish to allow
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+ // res.setHeader('Access-Control-Allow-Headers');
+  // res.setHeader('Content-Type', 'application/json');
 
   // Set to true if you need the website to include cookies in the requests sent
   // to the API (e.g. in case you use sessions)

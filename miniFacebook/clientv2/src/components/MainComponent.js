@@ -5,10 +5,14 @@ import Header from './header/Header'
 
 const MainComponent = () => {
   return (
-    <div>
-        <Header/>
-        <Body/>
-        <Footer/>
+    <div >
+      <Header />
+
+      <div className='container'>
+
+        <Body />
+      </div>
+      <Footer />
     </div>
   )
 }

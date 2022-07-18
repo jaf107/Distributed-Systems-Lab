@@ -1,23 +1,24 @@
 import React, { useState } from 'react'
 // import { addStatus } from '../../../redux/actions/statusActions';
 import "./Status.css"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import StatusList from './StatusList';
 import { addStatus } from '../../../redux/actions/statusActions';
 
 const Status = () => {
- /*  const [status, setStatus] = useState({
-    statusText: "",
-  }) */
+  /*  const [status, setStatus] = useState({
+     statusText: "",
+   }) */
   const [statusText, setStatusText] = useState("");
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user)
 
   const submitStatus = (e) => {
     e.preventDefault();
     const myForm = new FormData();
     myForm.set("text", statusText);
     console.log(statusText)
-    console.log("Status :",myForm);
+    console.log("Status :", myForm);
     dispatch(addStatus(myForm));
 
   }
@@ -39,7 +40,7 @@ const Status = () => {
             id="exampleFormControlTextarea1"
             rows="1"
             value={statusText}
-            onChange={(e)=> setStatusText(e.target.value)}
+            onChange={(e) => setStatusText(e.target.value)}
           >
 
           </textarea>

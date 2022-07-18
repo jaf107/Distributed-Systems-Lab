@@ -1,24 +1,33 @@
 import React, { Component } from 'react'
 import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem } from 'reactstrap'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 class Navigation extends Component {
-    constructor(props){
+    isAuthenticatedUser = () => {
+        const { isAuthenticated } = useSelector((state) => state.user.isAuthenticated)
+        return isAuthenticated;
+    }
+    constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             isNavOpen: false
         }
+        // this.selector = 
     }
-    navToggle = () =>{
+    navToggle = () => {
         this.setState({
             isNavOpen: !this.state.isNavOpen,
         })
     }
     render() {
+        // const { isAuthenticated } = useSelector((state) => state.user.isAuthenticated)
+        var i = this.isAuthenticatedUser();
+        console.log(i);
         return (
             <div>
                 <Navbar dark color='dark' expand='sm'>
                     <div className='container'>
-                        <NavbarToggler onClick={this.navToggle}/>
+                        <NavbarToggler onClick={this.navToggle} />
                         <NavbarBrand href='/'>miniFacebook</NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav className='mr-auto' navbar>
