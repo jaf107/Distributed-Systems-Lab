@@ -2,14 +2,19 @@ const mongoose = require('mongoose')
 
 const statusSchema = mongoose.Schema({
     text:{
-        type: String
+        type: String,
+        required: true
     },
 
-    user:{
+    uuid:{
         type: mongoose.Schema.ObjectId,
         ref: "User",
         required: true
     },
+    user_name:{
+        type: String,
+    },
+    
     createdAt:{
         type: Date,
         default: Date.now

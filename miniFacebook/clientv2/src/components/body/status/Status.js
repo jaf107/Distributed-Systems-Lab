@@ -1,9 +1,45 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import { addStatus } from '../../../redux/actions/statusActions';
 import "./Status.css"
 import { useDispatch, useSelector } from "react-redux";
 import StatusList from './StatusList';
-import { addStatus } from '../../../redux/actions/statusActions';
+import { addStatus, getStatus } from '../../../redux/actions/statusActions';
+
+function statusList(){
+  const dispatch = useDispatch();
+  const { status } = useSelector((state) => state.status);
+
+    useEffect(() => {
+        dispatch(getStatus());
+    }, [dispatch])
+  
+    return (
+      <div>
+          <div className='container'>
+              {status?.map((singleStatus) => (
+                  <div class="card p-3 bg-white">
+                      <div class="  ">
+                          <div class="d-flex right p-2">
+                          <small class="font-weight-bold block">{singleStatus.text}</small>
+                              
+                          </div>
+                          <div class="p-2">
+                              
+                              <span>
+                                  <h6 class="font-weight-bold text-dark block">
+                                      -{singleStatus.user_name}
+                                  </h6>{" "}
+                              </span>
+                          </div>
+
+                          <small>{singleStatus.created_at}</small>
+                      </div>
+                  </div>
+              ))}
+          </div>
+      </div>
+  )
+}
 
 const Status = () => {
   /*  const [status, setStatus] = useState({
@@ -11,14 +47,17 @@ const Status = () => {
    }) */
   const [statusText, setStatusText] = useState("");
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.user)
+  const user  = useSelector((state) => state.user.user)
 
   const submitStatus = (e) => {
     e.preventDefault();
     const myForm = new FormData();
     myForm.set("text", statusText);
-    console.log(statusText)
-    console.log("Status :", myForm);
+    myForm.set("uuid", user._id);
+    myForm.set("user_name", user.name);
+    // console.log(statusText)
+    // console.log(user._id)
+    
     dispatch(addStatus(myForm));
 
   }
@@ -53,7 +92,8 @@ const Status = () => {
           </button>        </div>
 
       </div>
-      <StatusList />
+      {statusList}
+      {/* <StatusList /> */}
     </div>
   )
 }

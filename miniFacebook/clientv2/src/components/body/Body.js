@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router'
 import Login from './authentication/Login'
+import Logout from './authentication/Logout'
 import Register from './authentication/Register'
 import Home from './home/Home'
 import Status from './status/Status'
@@ -16,6 +17,8 @@ const Body = () => {
 
         <Route path='/login' exact element={<Login/>}></Route>
         <Route path='/register' exact element={<Register/>}></Route>
+        <Route path='/logout' exact element={<Logout/>}></Route>
+
         <Route path='/' element={<Navigate to='/home'/>}></Route>
       </Routes>
     </div>

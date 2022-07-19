@@ -1,11 +1,11 @@
 import React from 'react'
-import Story from '../story/Story'
-import Status from '../status/Status'
 const Home = () => {
   return (
     <div>
-      <Story/>
-      <Status/>
+      
+      <h1 className='p-1 m-2'>Welcome to MiniFacebook </h1>
+      <p>Here you can post status and stories</p>
+      <p>And also check your friend's status and stories!</p>
     </div>
   )
 }

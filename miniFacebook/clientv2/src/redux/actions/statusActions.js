@@ -26,11 +26,11 @@ export const addStatus = (statusData) => async (dispatch) => {
     try {
         dispatch({ type: CREATE_STATUS_REQUEST });
         const config = { headers: { "Content-Type": "application/json" } };
-        console.log(statusData);
+        
         const { data } = await axios.post(`http://localhost:5000/api/v1/status/new`, 
         statusData,
         config);
-        console.log("action : ",data);
+        
         dispatch({ type: CREATE_STATUS_SUCCESS, payload: data.status });
     } catch (error) {
         dispatch({ type: CREATE_STATUS_FAIL, payload: error.response.data.message });
