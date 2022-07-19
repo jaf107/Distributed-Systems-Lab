@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getStatus } from '../../../redux/actions/statusActions';
-
+import "./Status.css"
 const StatusList = () => {
     const dispatch = useDispatch();
     const { status } = useSelector((state) => state.status);
@@ -15,13 +15,17 @@ const StatusList = () => {
             <div className='container'>
                 {status?.map((singleStatus) => (
                     <div class="card p-3 bg-white">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="user d-flex flex-row align-items-center p-2">
+                        <div class="  ">
+                            <div class="d-flex right p-2">
+                            <small class="font-weight-bold block">{singleStatus.text}</small>
+                                
+                            </div>
+                            <div class="p-2">
+                                
                                 <span>
-                                    <h6 class="font-weight-bold text-primary">
-                                        {/* {singleStatus.user_name} */}
+                                    <h6 class="font-weight-bold text-dark block">
+                                        -{singleStatus.user_name}
                                     </h6>{" "}
-                                    <small class="font-weight-bold">{singleStatus.text}</small>
                                 </span>
                             </div>
 
