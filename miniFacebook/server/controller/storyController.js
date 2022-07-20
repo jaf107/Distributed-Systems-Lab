@@ -1,4 +1,5 @@
 const Story = require('../model/storyModel');
+const minioClient = require('../config/minio')
 
 exports.addStory = catchAsyncErrors(async (req,res,next) =>{
     const story = await Story.create(req.body);    
@@ -6,6 +7,11 @@ exports.addStory = catchAsyncErrors(async (req,res,next) =>{
         success:true,
         story,
     });
+})
+
+exports.postStory = catchAsyncErrors(async (req,res,next) =>{
+    console.log(minioClient);
+    console.log(req.body);
 })
 
 exports.getStory = catchAsyncErrors(async (req,res,next) =>{

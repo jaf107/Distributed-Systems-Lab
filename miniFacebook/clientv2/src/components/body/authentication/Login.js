@@ -27,13 +27,7 @@ function Login({ history, location }) {
       dispatch(clearErrors());
     }
 
-    if (isAuthenticated) {
-      if(loginEmail === "jiteshsureka@gmail.com")
-          navigate("/admin/dashboard");
-      else 
-      navigate("/");
-     
-    }
+    
   }, [dispatch, error, /* alert, */ navigate, isAuthenticated, loginEmail]);
 
   return (

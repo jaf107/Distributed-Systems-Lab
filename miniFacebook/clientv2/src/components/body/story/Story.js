@@ -1,26 +1,29 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import "./Story.css"
 import reynaPic from '../../../assets/reyna.jpg'
+import { useDispatch, useSelector } from 'react-redux'
+import FileUploader from './FileUploader'
+import { postStory } from '../../../redux/actions/storyActions'
 
-class Story extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      file: null
+const Story =()=> {
+  const dispatch = useDispatch();
+  const user  = useSelector((state) => state.user.user)
+  
+  const [name, setName] = useState('');
+  const [selectedFile, setSelectedFile] = useState(null);
+  
+    const handleSubmit =(e) =>{
+      e.preventDefault()
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("file", selectedFile)
+      dispatch(postStory(formData));
     }
-    this.handleChange = this.handleChange.bind(this)
-  }
-  handleChange(event) {
-    this.setState({
-      file: URL.createObjectURL(event.target.files[0])
-    })
-  }
-  render() {
     return (
       <div>
         <div className='container story '>
           <div className='row'>
-            <div class="card mine text-white col-md-2 bgPic">
+            <div class="card mine text-white col-md-4 bgPic">
               <div class="card-img"></div>
               <div class="card-img-overlay center-dot">
                 <input type="file" />
@@ -41,15 +44,24 @@ class Story extends Component {
         </div>
 
         <div>
-          <input type='file' onChange={this.handleChange} />
-          <img src={this.state.file} style={{
-            height: "100%",
-            width: "100%"
-          }}></img>
+          <form>
+            {/* <input 
+              type='file'
+              value={selectedFile}
+              onChange={(e)=> setSelectedFile(e.target.files[0])}  
+            /> */}
+
+            <FileUploader
+              onFileSelectSuccess={(file) => setSelectedFile(file)}
+              onFileSelectError={({ error }) => alert(error)}
+            />
+            <button onClick={handleSubmit} className='btn btn-primary' >Post Story</button>
+          </form>
+
         </div>
 
       </div>
     )
   }
-}
+
 export default Story;
