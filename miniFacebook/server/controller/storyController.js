@@ -1,43 +1,45 @@
-const Story = require('../model/storyModel');
-const minioClient = require('../config/minio')
+const Story = require("../model/storyModel");
+const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
+const minioClient = require("../config/minio");
+const crypto = require("crypto");
 
-exports.addStory = catchAsyncErrors(async (req,res,next) =>{
-    console.log(req.body);
-    const story = await Story.create(req.body);    
+exports.addStory = catchAsyncErrors(async (req, res, next) => {
+  const minioClient = minioClient;
+  const uuid = crypto.randomUUID();
+  minioClient.fPutObject(
+    "minifacebook",
+    uuid,
+    req.file.path,
+    (err, objectInfo) => {
+      if (err) {
+        return console.log(err);
+      }
+    }
+  );
+
+  const newStory = new Story({
+    name: req.body.name,
+    storyUUID: uuid,
+  });
+  try {
+    const savedStory = await newStory.save();
     res.status(201).json({
-        success:true,
-        story,
+      success: true,
+      savedStory,
     });
-})
+  } catch (err) {
+    res.status(400).send(err);
+  }
+  
+});
 
-exports.postStory = catchAsyncErrors(async (req,res,next) =>{
-    console.log(minioClient);
-    console.log(req.body);
-})
 
-exports.getStory = catchAsyncErrors(async (req,res,next) =>{
-    let stories = await Story.find()
-    res.status(200).json({
-        success:true,
-        stories
-    })
-})
 
-exports.getUserStatus = catchAsyncErrors(async (req,res,next) =>{
-    let stories = await Story.find({
-        user:req.user.id
-    })
-    res.status(200).json({
-        success:true,
-        stories
-    })
-})
+exports.getStory = catchAsyncErrors(async (req, res, next) => {
+  const stories = await Story.find().sort({"time":-1}).limit(10);
 
-exports.deleteStory = catchAsyncErrors(async (req,res,next) =>{
-    const story = Story.find(req.params.id);
-    story.remove();
-    res.status(200).json({
-        success:true,
-        message: "Story deleted successfully"
-    })
-})
+  res.status(200).json({
+    success: true,
+    stories,
+  });
+});

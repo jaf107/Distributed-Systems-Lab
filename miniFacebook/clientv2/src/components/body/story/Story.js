@@ -8,7 +8,6 @@ const Story = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
 
-  const [selectedFile, setSelectedFile] = useState(null);
   const [picture, setPicture] = useState(null);
   const [imgData, setImgData] = useState(null);
 
@@ -21,7 +20,6 @@ const Story = () => {
   };
   const onChangePicture = (e) => {
     if (e.target.files[0]) {
-      setPicture(picture);
       console.log("picture: ", e.target.files);
       setPicture(e.target.files[0]);
       const reader = new FileReader();
@@ -35,14 +33,12 @@ const Story = () => {
     <div>
       <div className="container story ">
         <div>
-          <form onSubmit={handleSubmit} encType="multipart/form-data">
-            <input id="profilePic" type="file" onChange={onChangePicture} />
+          <input id="profilePic" type="file" onChange={onChangePicture} />
 
-            <button className="btn btn-primary">
-              Post Story
-            </button>
-            <img className="playerProfilePic_home_tile" src={imgData} />
-          </form>
+          <button onClick={handleSubmit} className="btn btn-primary">
+            Post Story
+          </button>
+          <img className="playerProfilePic_home_tile" src={imgData} />
         </div>
       </div>
     </div>

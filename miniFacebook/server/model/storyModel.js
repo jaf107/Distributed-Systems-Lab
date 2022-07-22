@@ -1,18 +1,19 @@
 const mongoose = require('mongoose')
 
 const storySchema = mongoose.Schema({
-    user: {
+    name: {
         type: mongoose.Schema.ObjectId,
         ref: "User",
         required: true
     },
-    image: {
-        public_id: {
-            type: String,
-        },
-        url: {
-            type: String
-        }
+    storyUUID:{
+        type: String,
+        required: true
+    },
+    time: {
+        type: Date,
+        default: Date.now,
+        required: true
     }
 })
 
