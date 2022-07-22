@@ -12,7 +12,6 @@ export const postStory = (storyData) => async (dispatch) => {
     const config = {
       headers: { 
         "Content-Type": "multipart/form-data",
-        "type": "formData"
     },
     };
 

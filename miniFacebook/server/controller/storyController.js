@@ -11,7 +11,6 @@ exports.addStory = catchAsyncErrors(async (req, res, next) => {
   console.log(req.body);
 
   // const minioClient = minio();
-  minioClient();
   // console.log(minioClient())
   const uuid = crypto.randomUUID();
   minioClient.fPutObject(
