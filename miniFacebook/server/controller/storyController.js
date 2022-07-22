@@ -2,6 +2,7 @@ const Story = require('../model/storyModel');
 const minioClient = require('../config/minio')
 
 exports.addStory = catchAsyncErrors(async (req,res,next) =>{
+    console.log(req.body);
     const story = await Story.create(req.body);    
     res.status(201).json({
         success:true,
