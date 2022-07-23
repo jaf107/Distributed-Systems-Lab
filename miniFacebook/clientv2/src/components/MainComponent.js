@@ -11,7 +11,7 @@ const MainComponent = () => {
       <div className="container">
         <Body />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

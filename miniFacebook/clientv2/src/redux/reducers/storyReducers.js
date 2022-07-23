@@ -41,7 +41,7 @@ import {
         return {
           ...state,
           loading: false,
-          // story: action.payload,
+          // story: story.push(action.payload),
         };
   
       default:

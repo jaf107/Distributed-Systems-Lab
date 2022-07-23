@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Story.css";
-import reynaPic from "../../../assets/reyna.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { postStory } from "../../../redux/actions/storyActions";
 import StoryReel from "./StoryReel";
@@ -32,18 +31,20 @@ const Story = () => {
   };
   return (
     <div>
-      <div className="container story ">
-        <div>
-          <input id="profilePic" type="file" onChange={onChangePicture} />
-
-          <button onClick={handleSubmit} className="btn btn-primary">
-            Post Story
+      <div className="story">
+        <div className="container">
+          <input
+            type="file"
+            className="story__input"
+            onChange={onChangePicture}
+          />
+          <button onClick={handleSubmit} className="">
+            +
           </button>
-          <img className="playerProfilePic_home_tile" src={imgData} />
+          <img className="playerProfilePic_home_tile sampleImg" src={imgData} />
         </div>
+        <StoryReel />
       </div>
-
-      <StoryReel/>
     </div>
   );
 };

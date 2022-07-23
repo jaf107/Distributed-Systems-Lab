@@ -34,8 +34,8 @@ export const postStory = (storyData) => async (dispatch) => {
       storyData,
       config
     );
-
-    dispatch({ type: CREATE_STORY_SUCCESS, payload: data.status });
+    
+    dispatch({ type: CREATE_STORY_SUCCESS, payload: data.story });
   } catch (error) {
     dispatch({ type: CREATE_STORY_FAIL, payload: error.response.data.message });
   }

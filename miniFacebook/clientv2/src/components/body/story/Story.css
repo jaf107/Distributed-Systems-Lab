@@ -1,125 +1,44 @@
-/* you can remove this 
-* this is only for mobile view
-*/
-
-/* you can remove this */
-
 .story {
-  background: white;
-  padding: 10px 5px;
-  width: 300px;
+  margin: 10px;
 }
-
-.story .story-item {
-  height: 160px;
-  border-radius: 15px;
-  background: #3e7fff;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  color: white;
-  position: relative;
-  font-size: 13px;
-}
-
-.story .story-item:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: black;
-  opacity: .2;
-  border-radius: 15px;
-}
-
-.story .story-item span {
-  position: absolute;
-  bottom: 0;
-  padding: 10px 5px;
-  font-family: sans-serif;
-}
-
-.story .owl-stage {
-  right: 15px;
-}
-
-.rounded {
-  background-image: url(https://any.ge/assets/images/favicon-32x32.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  width: 32px;
-  height: 32px;
-  margin: 5px;
-  position: absolute;
-  border-radius: 50%;
-  border: 2px solid #3877e1;
-}
-
-.story .bgpic {
-  background-image: url(https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg);
-}
-
-.myCard {
-  height: 200px;
-  width: 150px;
-}
-
-.stories {
-  margin-left: 25%;
-  width: 50rem;
-  height: 15rem;
-  overflow-x: auto;
-  /* display:inline-flex; */
+.story__card {
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-}
+  height: 100px;
+  background-position: center center;
 
-.card,
-.card-img,
-.card-img-overlay {
-  border: transparent;
+  width: 120px;
+  cursor: pointer;
+  flex-direction: column;
+  /* background-color: aqua; */
   border-radius: 10px;
+  box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 0.75);
+  margin-bottom: 10px;
+  transition: transform 100ms ease-in;
 }
 
-.card-text {
-  background-color: transparent;
+.story__card:hover {
+  transform: scale(1.07);
 }
 
-.dot {
-  height: 60px;
-  width: 60px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 50%;
-  border: transparent;
-  display: inline-block;
-  justify-content: center;
-  position: absolute;
-  top: 60%;
-}
-
-.center-dot {
+.story__input {
   display: flex;
-  justify-content: center;
+
+  flex: 1;
+  outline-width: 0;
+  border: none;
+  /* padding: 5px 20px; */
+  margin: 0 10px;
+  border-radius: 999px;
+  /* background-color: #eff2f5; */
 }
 
-.mine {
-  margin-top: 10px;
-  margin-right: 20px;
-  width: 50px;
+.story__btn {
+  /* position: absolute; */
+  bottom: 10px;
+  left: 20px;
+  color: red;
+}
+
+.sampleImg {
   height: 200px;
-  background-color: #3b5998;
-  -webkit-box-shadow: inset 0px 0px 3px 0px #FFFFFF;
-  box-shadow: inset 0px 0px 3px 0px #FFFFFF;
-}
-
-#storyUpload {
-  display: block;
-  visibility: hidden;
-  height: 0;
-  width: 0;
-  /* background-image: url(https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg); */
 }
