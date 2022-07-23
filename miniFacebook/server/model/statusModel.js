@@ -8,7 +8,6 @@ const statusSchema = mongoose.Schema({
 
     uuid:{
         type: mongoose.Schema.ObjectId,
-        ref: "User",
         required: true
     },
     user_name:{

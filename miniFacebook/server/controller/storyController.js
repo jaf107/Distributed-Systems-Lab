@@ -1,17 +1,13 @@
 const Story = require("../model/storyModel");
 const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
-const Minio = require("minio");
 const crypto = require("crypto");
 const minioClient = require("../config/minio");
 
-// exports.uploadStory = upload.single("photo");
 
 exports.addStory = catchAsyncErrors(async (req, res, next) => {
   console.log(req.file);
   console.log(req.body);
 
-  // const minioClient = minio();
-  // console.log(minioClient())
   const uuid = crypto.randomUUID();
   minioClient.fPutObject(
     "minifacebook",

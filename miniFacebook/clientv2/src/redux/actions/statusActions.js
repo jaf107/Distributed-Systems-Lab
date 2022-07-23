@@ -25,7 +25,9 @@ export const getStatus = () => async (dispatch) => {
 export const addStatus = (statusData) => async (dispatch) => {
     try {
         dispatch({ type: CREATE_STATUS_REQUEST });
-        const config = { headers: { "Content-Type": "application/json" } };
+        const config = { headers: {
+            "Content-Type": "multipart/form-data",
+          } };
         
         const { data } = await axios.post(`http://localhost:5000/api/v1/status/new`, 
         statusData,
