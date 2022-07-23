@@ -13,8 +13,8 @@ export const getStories = () => async (dispatch) => {
     dispatch({ type: GET_STORY_REQUEST });
 
     const { data } = await axios.get(`http://localhost:5000/api/v1/story`);
-    // console.log(data);
-    dispatch({ type: GET_STORY_SUCCESS, payload: data.status });
+    console.log(data);
+    dispatch({ type: GET_STORY_SUCCESS, payload: data.stories });
   } catch (error) {
     dispatch({ type: GET_STORY_FAIL, payload: error.response.data.message });
   }

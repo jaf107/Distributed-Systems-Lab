@@ -3,6 +3,7 @@ import "./Story.css";
 import reynaPic from "../../../assets/reyna.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { postStory } from "../../../redux/actions/storyActions";
+import StoryReel from "./StoryReel";
 
 const Story = () => {
   const dispatch = useDispatch();
@@ -41,6 +42,8 @@ const Story = () => {
           <img className="playerProfilePic_home_tile" src={imgData} />
         </div>
       </div>
+
+      <StoryReel/>
     </div>
   );
 };
