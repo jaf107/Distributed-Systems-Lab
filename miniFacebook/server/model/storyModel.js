@@ -2,8 +2,7 @@ const mongoose = require('mongoose')
 
 const storySchema = mongoose.Schema({
     name: {
-        type: mongoose.Schema.ObjectId,
-        ref: "User",
+        type: String,
         required: true
     },
     storyUUID:{
