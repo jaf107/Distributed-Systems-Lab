@@ -1,6 +1,6 @@
 const Minio = require('minio')
 
-const minioClient = new Minio.Client({
+const minioClient = () => new Minio.Client({
     endPoint: '192.168.0.142',
     port: 9000,
     useSSL: false,

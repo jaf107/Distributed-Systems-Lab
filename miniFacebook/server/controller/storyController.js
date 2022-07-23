@@ -1,10 +1,18 @@
 const Story = require("../model/storyModel");
 const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
-const minioClient = require("../config/minio");
+const Minio = require("minio");
 const crypto = require("crypto");
+const minioClient = require("../config/minio");
+
+// exports.uploadStory = upload.single("photo");
 
 exports.addStory = catchAsyncErrors(async (req, res, next) => {
-  const minioClient = minioClient;
+  console.log(req.file);
+  console.log(req.body);
+
+  // const minioClient = minio();
+  minioClient();
+  // console.log(minioClient())
   const uuid = crypto.randomUUID();
   minioClient.fPutObject(
     "minifacebook",
@@ -30,16 +38,14 @@ exports.addStory = catchAsyncErrors(async (req, res, next) => {
   } catch (err) {
     res.status(400).send(err);
   }
-  
 });
 
-
-
 exports.getStory = catchAsyncErrors(async (req, res, next) => {
-  const stories = await Story.find().sort({"time":-1}).limit(10);
+  const stories = await Story.find().sort({ time: -1 }).limit(10);
 
   res.status(200).json({
     success: true,
     stories,
   });
 });
+
