@@ -3,6 +3,7 @@ import "./Story.css";
 import { useDispatch, useSelector } from "react-redux";
 import { postStory } from "../../../redux/actions/storyActions";
 import StoryReel from "./StoryReel";
+import { Input } from "@material-ui/core";
 
 const Story = () => {
   const dispatch = useDispatch();
@@ -32,13 +33,13 @@ const Story = () => {
   return (
     <div>
       <div className="story">
-        <div className="container">
-          <input
+        <div className="story__card">
+          <Input
             type="file"
-            className="story__input"
+            // className="story__input"
             onChange={onChangePicture}
           />
-          <button onClick={handleSubmit} className="">
+          <button onClick={handleSubmit} className="story__button">
             +
           </button>
           <img className="playerProfilePic_home_tile sampleImg" src={imgData} />

@@ -41,8 +41,13 @@ class Navigation extends Component {
       routes = (
         <Nav className="mr-auto" navbar>
           <NavItem>
-            <Link to="/" className="nav-link active">
+            <Link to="/" className="nav-link">
               Home
+            </Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/feed" className="nav-link">
+              Feed
             </Link>
           </NavItem>
           <NavItem>

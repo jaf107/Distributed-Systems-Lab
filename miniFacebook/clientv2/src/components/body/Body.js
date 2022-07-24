@@ -6,6 +6,7 @@ import Register from './authentication/Register'
 import Home from './home/Home'
 import Status from './status/Status'
 import Story from './story/Story'
+import Feed from './feed/Feed'
 
 const Body = () => {
   return (
@@ -14,6 +15,8 @@ const Body = () => {
         <Route path='/home' exact element={<Home/>}></Route>
         <Route path='/story' exact element={<Story/>}></Route>
         <Route path='/status' exact element={<Status/>}></Route>
+        <Route path='/feed' exact element={ <Feed/> }></Route>
+
 
         <Route path='/login' exact element={<Login/>}></Route>
         <Route path='/register' exact element={<Register/>}></Route>

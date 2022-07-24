@@ -8,10 +8,13 @@ const MainComponent = () => {
     <div>
       <Header />
 
-      <div className="container">
+      <div 
+      className="container" 
+
+      >
         <Body />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
