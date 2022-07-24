@@ -9,6 +9,7 @@
   cursor: pointer;
   /* flex-direction: column; */
   /* background-color: aqua; */
+  margin-top: 20px;
   border-radius: 10px;
   box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 0.75);
   margin-bottom: 20px;

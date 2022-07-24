@@ -42,7 +42,7 @@ exports.getStory = catchAsyncErrors(async (req, res, next) => {
   })
     .sort({ time: -1 })
     .limit(10);
-
+  // console.log(stories);
   res.status(200).json({
     success: true,
     stories,
