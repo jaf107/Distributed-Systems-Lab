@@ -24,6 +24,6 @@ app.use('/uploads', express.static('uploads'));
 
 
 router.route("/story/new").post(upload.single("picture"), addStory);
-router.route("/story").get(getStory);
+router.route("/story/:_id").get(getStory);
 
 module.exports = router;

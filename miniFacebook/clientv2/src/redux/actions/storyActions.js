@@ -8,12 +8,12 @@ import {
   GET_STORY_SUCCESS,
 } from "../constants/storyConstants";
 
-export const getStories = () => async (dispatch) => {
+export const getStories = (_id) => async (dispatch) => {
   try {
     dispatch({ type: GET_STORY_REQUEST });
 
-    const { data } = await axios.get(`http://localhost:5000/api/v1/story`);
-    console.log(data);
+    const { data } = await axios.get(`http://localhost:5000/api/v1/story/`+_id);
+    // console.log(data);
     dispatch({ type: GET_STORY_SUCCESS, payload: data.stories });
   } catch (error) {
     dispatch({ type: GET_STORY_FAIL, payload: error.response.data.message });

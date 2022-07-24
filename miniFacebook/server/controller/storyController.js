@@ -3,7 +3,6 @@ const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 const crypto = require("crypto");
 const minioClient = require("../config/minio");
 
-
 exports.addStory = catchAsyncErrors(async (req, res, next) => {
   // console.log(req.file);
   // console.log(req.body);
@@ -36,11 +35,16 @@ exports.addStory = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.getStory = catchAsyncErrors(async (req, res, next) => {
-  const stories = await Story.find().sort({ time: -1 }).limit(10);
+  // console.log("Req params:", req.params._id);
+
+  const stories = await Story.find({
+    name: { $ne: req.params._id },
+  })
+    .sort({ time: -1 })
+    .limit(10);
 
   res.status(200).json({
     success: true,
     stories,
   });
 });
-

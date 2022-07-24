@@ -19,7 +19,7 @@ exports.getStatus = catchAsyncErrors(async (req, res, next) => {
     .limit(10);
   statusQuery.exec((err, status) => {
     if (err) console.log(err);
-    console.log(status);
+    // console.log(status);
 
     res.status(200).json({
       success: true,

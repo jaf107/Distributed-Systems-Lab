@@ -9,8 +9,10 @@ const StoryReel = () => {
   const dispatch = useDispatch();
   const { story } = useSelector((state) => state.story);
   // console.log(story);
+  const user = useSelector((state) => state.user.user);
+
   useEffect(() => {
-    dispatch(getStories());
+    dispatch(getStories(user.name));
   }, [dispatch]);
   return (
     <div className="storyReel">
