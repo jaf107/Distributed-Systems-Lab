@@ -6,9 +6,12 @@ import "./Status.css";
 const StatusList = () => {
   const dispatch = useDispatch();
   const { status } = useSelector((state) => state.status);
+  // const { user } = useSelector((state) => state.user.user);
+  const user  = useSelector((state) => state.user.user)
 
+  // console.log(user);
   useEffect(() => {
-    dispatch(getStatus());
+    dispatch(getStatus(user._id));
   }, [dispatch]);
 
   return (

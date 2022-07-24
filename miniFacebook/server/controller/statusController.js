@@ -11,12 +11,19 @@ exports.addStatus = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.getStatus = catchAsyncErrors(async (req, res, next) => {
-  // console.log("Req params:",req.params);
-  let status = await Status.find({ email: { $ne: req.params.email } })
-    .sort({ time: -1 })
+  // console.log("Req params:", req.params._id);
+  let statusQuery = Status.find({
+    uuid: { $ne: req.params._id },
+  })
+    .sort({ createdAt: -1 })
     .limit(10);
-  res.status(200).json({
-    success: true,
-    status,
+  statusQuery.exec((err, status) => {
+    if (err) console.log(err);
+    console.log(status);
+
+    res.status(200).json({
+      success: true,
+      status,
+    });
   });
 });

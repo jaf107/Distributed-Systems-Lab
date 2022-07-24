@@ -18,12 +18,13 @@ export const statusReducer = (state = { status: [] }, action) => {
     case GET_STATUS_REQUEST:
       return {
         ...state,
-        status: [],
+         status: [],
       };
     case GET_STATUS_SUCCESS:
       return {
         ...state,
         loading: false,
+        // console.log(action.payload)
         status: action.payload,
       };
 

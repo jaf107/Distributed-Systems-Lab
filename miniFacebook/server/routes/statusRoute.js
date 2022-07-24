@@ -8,6 +8,6 @@ const upload = multer();
 const router = express.Router();
 
 router.route("/status/new").post(upload.array() ,addStatus);
-router.route("/status").get(getStatus);
+router.route("/status/:_id").get(getStatus);
 
 module.exports = router;

@@ -10,11 +10,15 @@ import {
 import axios from "axios";
 axios.defaults.withCredentials = true;
 
-export const getStatus = () => async (dispatch) => {
+export const getStatus = (_id) => async (dispatch) => {
+  // console.log(email);
   try {
     dispatch({ type: GET_STATUS_REQUEST });
 
-    const { data } = await axios.get(`http://localhost:5000/api/v1/status`);
+    const { data } = await axios.get(
+      `http://localhost:5000/api/v1/status/`+
+      _id
+    );
     // console.log(data);
     dispatch({ type: GET_STATUS_SUCCESS, payload: data.status });
   } catch (error) {
