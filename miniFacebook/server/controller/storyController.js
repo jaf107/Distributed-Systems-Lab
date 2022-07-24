@@ -5,8 +5,8 @@ const minioClient = require("../config/minio");
 
 
 exports.addStory = catchAsyncErrors(async (req, res, next) => {
-  console.log(req.file);
-  console.log(req.body);
+  // console.log(req.file);
+  // console.log(req.body);
 
   const uuid = crypto.randomUUID();
   minioClient.fPutObject(
