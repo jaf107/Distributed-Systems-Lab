@@ -3,6 +3,7 @@ const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 const crypto = require("crypto");
 const minioClient = require("../config/minio");
 
+
 exports.addStory = catchAsyncErrors(async (req, res, next) => {
   // console.log(req.file);
   // console.log(req.body);

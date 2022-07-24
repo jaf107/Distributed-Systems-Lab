@@ -7,7 +7,7 @@ const upload = multer();
 
 const router = express.Router();
 
-router.route("/status/new").post(upload.array() ,addStatus);
-router.route("/status/:_id").get(getStatus);
+router.route("/status/new").post(upload.array(), isAuthenticatedUser ,addStatus);
+router.route("/status/:_id").get(isAuthenticatedUser,getStatus);
 
 module.exports = router;
