@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.0",
+    "nodemon": "^2.0.19"
+  },
+  "name": "status",
+  "version": "1.0.0",
+  "main": "StatusService.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon StatusService.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
