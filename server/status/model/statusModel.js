@@ -6,12 +6,9 @@ const statusSchema = mongoose.Schema({
         required: true
     },
 
-    uuid:{
-        type: mongoose.Schema.ObjectId,
-        required: true
-    },
-    user_name:{
+    user_UUID:{
         type: String,
+        required: true
     },
     
     createdAt:{

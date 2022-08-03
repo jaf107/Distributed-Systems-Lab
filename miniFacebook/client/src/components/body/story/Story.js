@@ -17,6 +17,7 @@ const Story = () => {
     const formData = new FormData();
     formData.append("name", user.name);
     formData.append("picture", picture);
+    formData.append("user_UUID",user._id);
     dispatch(postStory(formData));
   };
   const onChangePicture = (e) => {

@@ -19,21 +19,11 @@ exports.getStatus = catchAsyncErrors(async (req, res, next) => {
     .limit(10);
   statusQuery.exec((err, status) => {
     if (err) console.log(err);
+    // console.log(status);
+
     res.status(200).json({
       success: true,
       status,
     });
   });
 });
-
-exports.getAllStatus = catchAsyncErrors(async (req,res,next)=>{
-  const allStatusQuery = Status.find();
-  allStatusQuery.exec((err, allStatus) =>{
-    if(err)
-      console.log(err);
-      res.status(200).json({
-        success:true,
-        allStatus
-      })
-  })
-})

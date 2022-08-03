@@ -18,7 +18,7 @@ const MessageSender = () => {
     console.log(statusText)
     const myForm = new FormData();
     myForm.set("text", statusText);
-    myForm.set("uuid", user._id);
+    myForm.set("user_UUID", user._id);
     myForm.set("user_name", user.name);
  
     dispatch(addStatus(myForm));
