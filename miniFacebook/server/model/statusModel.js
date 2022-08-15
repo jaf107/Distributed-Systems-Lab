@@ -6,11 +6,11 @@ const statusSchema = mongoose.Schema({
         required: true
     },
 
-    uuid:{
+    user_UUID:{
         type: mongoose.Schema.ObjectId,
         required: true
     },
-    user_UUID:{
+    user_name:{
         type: String,
         required: true
     },

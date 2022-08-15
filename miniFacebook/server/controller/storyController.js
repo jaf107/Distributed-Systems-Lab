@@ -36,7 +36,7 @@ exports.getStory = catchAsyncErrors(async (req, res, next) => {
   // console.log("Req params:", req.params._id);
 
   const stories = await Story.find({
-    name: { $ne: req.params._id },
+    user_UUID: { $ne: req.params._id },
   })
     .sort({ createdAt: -1 })
     .limit(10);
