@@ -12,7 +12,7 @@ const StoryReel = () => {
   const user = useSelector((state) => state.user.user);
 
   useEffect(() => {
-    dispatch(getStories(user.name));
+    dispatch(getStories(user._id));
   }, [dispatch]);
   return (
     <div className="storyReel">

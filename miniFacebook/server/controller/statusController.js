@@ -4,6 +4,7 @@ const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 exports.addStatus = catchAsyncErrors(async (req, res, next) => {
   // console.log(req.body);
   const status = await Status.create(req.body);
+  console.log(status);
   res.status(201).json({
     success: true,
     status,
