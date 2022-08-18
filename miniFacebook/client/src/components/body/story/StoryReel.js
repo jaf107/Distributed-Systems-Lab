@@ -13,7 +13,7 @@ const StoryReel = () => {
 
   useEffect(() => {
     dispatch(getStories(user._id));
-  }, [dispatch]);
+  }, [dispatch, user._id]);
   return (
     <div className="storyReel">
       {story?.map((singleStory) => (
@@ -24,9 +24,6 @@ const StoryReel = () => {
         />
       ))}
 
-      {/* <SingleStory image={Shrek} profileSrc={Pic} title="Jafar Mahin" />
-      <SingleStory image={Pic} profileSrc={Pic} title="Jafar Mahin" /> */}
-      {/*<SingleStory image={reynaPic} profileSrc={Pic} title="Jafar Mahin" /> */}
     </div>
   );
 };
