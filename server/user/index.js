@@ -53,18 +53,18 @@ app.use(function (req, res, next) {
 
 // Route Imports
 const user = require("./routes/userRoute");
-const status = require("./routes/statusRoute");
-const story = require("./routes/storyRoute");
+// const status = require("./routes/statusRoute");
+// const story = require("./routes/storyRoute");
 
 app.use("/api/v1", user);
-app.use("/api/v1", status);
-app.use("/api/v1", story);
+// app.use("/api/v1", status);
+// app.use("/api/v1", story);
 
-app.use(express.static(path.join(__dirname, "../clientv2/build")));
+// app.use(express.static(path.join(__dirname, "../clientv2/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../clientv2/public/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "../clientv2/public/index.html"));
+// });
 
 app.use(errorMiddleware);
 
