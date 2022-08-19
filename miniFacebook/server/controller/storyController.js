@@ -24,6 +24,7 @@ exports.addStory = catchAsyncErrors(async (req, res, next) => {
   });
   try {
     const savedStory = await newStory.save();
+
     res.status(201).json({
       success: true,
       savedStory,
