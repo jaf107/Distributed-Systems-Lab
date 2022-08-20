@@ -65,3 +65,22 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
     user,
   });
 });
+
+
+// Check Authentication
+exports.checkAuthentication = catchAsyncErrors(async (req, res, next) => {
+  console.log(req.params.token);
+  const paramToken = req.params.token;
+  const {token} = req.cookies;
+
+  if(token != paramToken){
+    res.status(403).json({
+      success: false,
+      message: "Not authenticated"
+    })
+  }
+  res.status(200).json({
+    success: true,
+    isAuthenticated: true,
+  })
+});

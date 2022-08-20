@@ -1,19 +1,19 @@
 const ErrorHander = require("../utils/errorhander");
 const catchAsyncErrors = require("./catchAsyncErrors");
-const jwt = require("jsonwebtoken");
-const User = require("../model/userModel");
+const axios = require("axios");
 
 exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
-  const { token } = req.cookies;
+  const token = req.headers["cookie"].split("=")[1];
+  axios.get(`http://localhost:4000/api/v1/authenticated/${token}`)
+  .then(response => {
+    const authenticated = response.data.success;
+    console.log(response.data.success)
+  })
+  .catch(error => console.log("Please sign in first"));
 
-  if (!token) {
+  if (!authenticated) {
     return next(new ErrorHander("Please Login to access this resource", 401));
   }
 
-  const decodedData = jwt.verify(token, process.env.JWT_SECRET);
-
-  req.user = await User.findById(decodedData.id);
-
   next();
 });
-

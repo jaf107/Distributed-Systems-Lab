@@ -4,6 +4,7 @@ const {
   loginUser,
   logout,
   getUserDetails,
+  checkAuthentication,
 } = require("../controller/userController");
 const multer = require("multer");
 const upload = multer();
@@ -15,6 +16,8 @@ const router = express.Router();
 router.route("/register").post(upload.array(), registerUser);
 router.route("/login").post(upload.array(), loginUser);
 router.route("/me").get(isAuthenticatedUser, getUserDetails);
+
+router.route("/authenticated/:token").get(checkAuthentication);
 
 router.route("/logout").get(logout);
 

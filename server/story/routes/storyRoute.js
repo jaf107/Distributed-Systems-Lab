@@ -3,6 +3,7 @@ const {
   addStory,
   getStory,
   uploadStory,
+  getAllStory,
 } = require("../controller/storyController");
 const app = express();
 const router = express.Router();
@@ -26,5 +27,5 @@ router
   .route("/story/new")
   .post(/* isAuthenticatedUser, */ upload.single("picture"), addStory);
 router.route("/story/:_id").get(/* isAuthenticatedUser, */ getStory);
-
+router.route("/story").get(getAllStory)
 module.exports = router;
