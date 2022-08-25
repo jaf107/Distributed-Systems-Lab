@@ -71,7 +71,7 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
 
 // Check Authentication
 exports.checkAuthentication = catchAsyncErrors(async (req, res, next) => {
-  console.log(req.body.token);
+  // console.log(req.body.token);
   
   const token = req.body.token;
   

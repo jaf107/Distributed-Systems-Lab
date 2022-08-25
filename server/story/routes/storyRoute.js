@@ -2,13 +2,12 @@ const express = require("express");
 const {
   addStory,
   getStory,
-  uploadStory,
   getAllStory,
 } = require("../controller/storyController");
 const app = express();
 const router = express.Router();
 const multer = require("multer");
-const { isAuthenticatedUser } = require('../middlewares/auth');
+const { isAuthenticatedUser } = require("../middlewares/auth");
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -20,10 +19,10 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 
-app.use(express.static(__dirname + "/public"));
-app.use("/uploads", express.static("uploads"));
+// app.use(express.static(__dirname + "/public"));
+// app.use("/uploads", express.static("uploads"));
 
-router.route("/story/new").post( /* isAuthenticatedUser, */  upload.single("picture"), addStory);
-router.route("/story/:_id").get( /* isAuthenticatedUser, */  getStory);
-router.route("/story").get(getAllStory)
+router.route("/story/new").post( upload.single("picture"), isAuthenticatedUser, addStory);
+router.route("/story/:_id").get( isAuthenticatedUser,getStory);
+// router.route("/story").t(getAllStory);
 module.exports = router;

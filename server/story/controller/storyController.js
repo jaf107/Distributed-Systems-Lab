@@ -2,9 +2,10 @@ const Story = require("../model/storyModel");
 const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 const crypto = require("crypto");
 const minioClient = require("../config/minio");
+const fs = require("fs");
 
 exports.addStory = catchAsyncErrors(async (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   const uuid = crypto.randomUUID();
   minioClient.fPutObject(
     "minifacebook",
@@ -14,6 +15,7 @@ exports.addStory = catchAsyncErrors(async (req, res, next) => {
       if (err) {
         return console.log(err);
       }
+      // fs.unlinkSync(req.file);
     }
   );
 
