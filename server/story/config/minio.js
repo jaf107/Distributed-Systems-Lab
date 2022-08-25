@@ -4,8 +4,8 @@ const minioClient = new Minio.Client({
     endPoint: '127.0.0.1',
     port: 9000,
     useSSL: false,
-    accessKey: 'minioadmin',
-    secretKey: 'minioadmin'
+    accessKey: process.env.MINIO_DEFAULT_ACCESS_KEY,
+    secretKey: process.env.MINIO_DEFAULT_ACCESS_KEY
 })
 
 module.exports = minioClient;
