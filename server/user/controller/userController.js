@@ -3,6 +3,8 @@ const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 const User = require("../model/userModel");
 const sendToken = require("../utils/jwtToken");
 // const sendEmail = require("../utils/sendEmail");
+const jwt = require("jsonwebtoken");
+
 const crypto = require("crypto");
 
 // Register a User
@@ -69,18 +71,24 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
 
 // Check Authentication
 exports.checkAuthentication = catchAsyncErrors(async (req, res, next) => {
-  console.log(req.params.token);
-  const paramToken = req.params.token;
-  const {token} = req.cookies;
-
-  if(token != paramToken){
+  console.log(req.body.token);
+  
+  const token = req.body.token;
+  
+  if (!token) {
     res.status(403).json({
       success: false,
       message: "Not authenticated"
     })
   }
+
+  const decodedData = jwt.verify(token, process.env.JWT_SECRET);
+
+  req.user = await User.findById(decodedData.id);
+
   res.status(200).json({
     success: true,
     isAuthenticated: true,
+    user: req.user
   })
 });

@@ -4,7 +4,7 @@ const crypto = require("crypto");
 const minioClient = require("../config/minio");
 
 exports.addStory = catchAsyncErrors(async (req, res, next) => {
-  
+  console.log(req.body);
   const uuid = crypto.randomUUID();
   minioClient.fPutObject(
     "minifacebook",
@@ -35,6 +35,7 @@ exports.addStory = catchAsyncErrors(async (req, res, next) => {
 
 exports.getStory = catchAsyncErrors(async (req, res, next) => {
   // console.log("Req params:", req.params._id);
+  console.log(req.body);
 
   const stories = await Story.find({
     name: { $ne: req.params._id },

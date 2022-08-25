@@ -13,6 +13,7 @@ router.route("/status").get(isAuthenticatedUser,getAllStatus);
 
 // router.route("/status/new").post(upload.array(),addStatus);
 // router.route("/status/:_id").get(getStatus);
+// router.route("/status").get(getAllStatus);
 
 
 module.exports = router;
