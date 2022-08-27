@@ -8,7 +8,7 @@ exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
   .then(response => {
     
     const { isAuthenticated } = response.data;
-    console.log(isAuthenticated);
+    // console.log(isAuthenticated);
     if (!isAuthenticated) {
       return next(new ErrorHander("Please Login to access this resource", 401));
     }

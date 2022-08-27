@@ -19,10 +19,9 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 
-// app.use(express.static(__dirname + "/public"));
-// app.use("/uploads", express.static("uploads"));
 
 router.route("/story/new").post( upload.single("picture"), isAuthenticatedUser, addStory);
 router.route("/story/:_id").get( isAuthenticatedUser,getStory);
 // router.route("/story").t(getAllStory);
+
 module.exports = router;

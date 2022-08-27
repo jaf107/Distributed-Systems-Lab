@@ -14,10 +14,10 @@
   },
   "name": "story",
   "version": "1.0.0",
-  "main": "StoryService.js",
+  "main": "storyServer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon StoryService.js"
+    "start": "nodemon storyServer.js"
   },
   "keywords": [],
   "author": "",
