@@ -27,7 +27,7 @@ exports.getStatus = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.getAllStatus = catchAsyncErrors(async (req,res,next)=>{
-  // console.log(req.headers['cookie']);
+  
   const allStatusQuery = Status.find();
   allStatusQuery.exec((err, allStatus) =>{
     if(err)
