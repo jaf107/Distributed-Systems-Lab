@@ -71,10 +71,8 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
 
 // Check Authentication
 exports.checkAuthentication = catchAsyncErrors(async (req, res, next) => {
-  // console.log(req.body.token);
-  
+ 
   const token = req.body.token;
-  
   if (!token) {
     res.status(403).json({
       success: false,
@@ -83,9 +81,7 @@ exports.checkAuthentication = catchAsyncErrors(async (req, res, next) => {
   }
 
   const decodedData = jwt.verify(token, process.env.JWT_SECRET);
-
   req.user = await User.findById(decodedData.id);
-
   res.status(200).json({
     success: true,
     isAuthenticated: true,
