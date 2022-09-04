@@ -20,9 +20,7 @@ services:
       - 4000:4000
     depends_on:
       - db_user
-    environment:
-      DB_URL: mongodb://db-account:27017/user
-    
+
   status_service:
     build: ./status
     restart: unless-stopped
@@ -31,8 +29,7 @@ services:
     depends_on:
       - db_status
       - user_service
-    environment:
-      DB_URL: mongodb://db-account:27017/status
+
 
   story_service:
     build: ./story
@@ -42,14 +39,13 @@ services:
     depends_on:
       - db_story
       - user_service
-      # - minio
-    environment:
-      DB_URL: mongodb://db-account:27017/story
+      - storyobjectdb
 
   db_user:
     image: mongo:4.2
     ports:
       - 27020:27017
+    restart: unless-stopped
     volumes: 
       - user:/data/db
 
@@ -57,18 +53,32 @@ services:
     image: mongo:4.2
     ports:
       - 27021:27017
+    restart: unless-stopped
     volumes: 
       - status:/data/db
 
   db_story:
     image: mongo:4.2
+    restart: unless-stopped
     ports:
       - 27022:27017
     volumes: 
       - story:/data/db
 
 
-  # minio:
+  storyobjectdb:
+    image: minio/minio:latest
+    restart: unless-stopped
+
+    ports:
+      - 9000:9000
+      - 9001:9001
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+    command: server --console-address ":9001" /data
+    volumes:
+      - /minio_data:/data
 
 volumes:
   user:
