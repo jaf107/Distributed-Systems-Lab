@@ -1,0 +1,76 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+      - 5000:5000
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - user_service
+      - status_service
+      - story_service
+
+  user_service:
+    build: ./user
+    restart: unless-stopped
+    ports:
+      - 4000:4000
+    depends_on:
+      - db_user
+    environment:
+      DB_URL: mongodb://db-account:27017/user
+    
+  status_service:
+    build: ./status
+    restart: unless-stopped
+    ports:
+      - 4001:4001
+    depends_on:
+      - db_status
+      - user_service
+    environment:
+      DB_URL: mongodb://db-account:27017/status
+
+  story_service:
+    build: ./story
+    restart: unless-stopped
+    ports:
+      - 4002:4002
+    depends_on:
+      - db_story
+      - user_service
+      # - minio
+    environment:
+      DB_URL: mongodb://db-account:27017/story
+
+  db_user:
+    image: mongo:4.2
+    ports:
+      - 27020:27017
+    volumes: 
+      - user:/data/db
+
+  db_status:
+    image: mongo:4.2
+    ports:
+      - 27021:27017
+    volumes: 
+      - status:/data/db
+
+  db_story:
+    image: mongo:4.2
+    ports:
+      - 27022:27017
+    volumes: 
+      - story:/data/db
+
+
+  # minio:
+
+volumes:
+  user:
+  status:
+  story:
