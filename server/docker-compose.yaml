@@ -15,6 +15,7 @@ services:
   
   client:
     image: client
+    
     build: ./client
     restart: unless-stopped
     ports:
@@ -22,12 +23,14 @@ services:
 
 
   user_service:
+    image: jaf107/user-service
     build: ./user
     restart: unless-stopped
     depends_on:
       - db_user
 
   status_service:
+    image: jaf107/status-service
     build: ./status
     restart: unless-stopped
     depends_on:
@@ -36,6 +39,7 @@ services:
 
 
   story_service:
+    image: jaf107/story-service
     build: ./story
     restart: unless-stopped
     depends_on:
@@ -74,7 +78,7 @@ services:
       - MINIO_ROOT_PASSWORD=minioadmin
     command: server --console-address ":9001" /data
     volumes:
-      - ./minio_data:/data
+      - /minio_data:/data
 
 volumes:
   user:
