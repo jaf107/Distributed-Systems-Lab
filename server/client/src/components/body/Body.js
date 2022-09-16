@@ -1,0 +1,31 @@
+import React from 'react'
+import { Navigate, Route, Routes } from 'react-router'
+import Login from './authentication/Login'
+import Logout from './authentication/Logout'
+import Register from './authentication/Register'
+import Home from './home/Home'
+import Status from './status/Status'
+import Story from './story/Story'
+import Feed from './feed/Feed'
+
+const Body = () => {
+  return (
+    <div>
+      <Routes>
+        <Route path='/home' exact element={<Home/>}></Route>
+        <Route path='/story' exact element={<Story/>}></Route>
+        <Route path='/status' exact element={<Status/>}></Route>
+        <Route path='/feed' exact element={ <Feed/> }></Route>
+
+
+        <Route path='/login' exact element={<Login/>}></Route>
+        <Route path='/register' exact element={<Register/>}></Route>
+        <Route path='/logout' exact element={<Logout/>}></Route>
+
+        <Route path='/' element={<Navigate to='/home'/>}></Route>
+      </Routes>
+    </div>
+  )
+}
+
+export default Body

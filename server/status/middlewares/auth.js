@@ -6,7 +6,7 @@ exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
   const tempToken = req.headers["cookie"].split("=")[1];
   const token = {token: tempToken};
   const authenticated = false;
-  axios.post(`http://localhost:5000/api/v1/authenticated`, token)
+  axios.post(`http://user_service:4000/api/v1/authenticated`, token)
   .then(response => {
     
     const { isAuthenticated } = response.data;

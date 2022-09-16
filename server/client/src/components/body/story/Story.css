@@ -1,0 +1,49 @@
+.story {
+  /* margin: 10px; */
+}
+.story__card {
+  /* display: flex; */
+  /* background-position: center center; */
+  /* height: 50px; */
+  /* width: 120px; */
+  cursor: pointer;
+  /* flex-direction: column; */
+  /* background-color: aqua; */
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 0.75);
+  margin-bottom: 20px;
+  transition: transform 100ms ease-in;
+}
+
+.story__card:hover {
+  transform: scale(1.07);
+}
+
+.story__input {
+  
+  border: 1px solid black;
+  padding: 5px 20px;
+  margin: 0 10px;
+  border-radius: 999px;
+}
+
+.story__button {
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
+  background-color: #2e81f4;
+  color: white;
+  border: 0;
+  margin-left: 10px;
+}
+
+.story__button:hover{
+  transform: scale(1.07);
+  background-color: rgba(11, 20, 191, 0.728);
+}
+
+.sampleImg {
+  height: 200px;
+}
