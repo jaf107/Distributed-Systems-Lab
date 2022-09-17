@@ -14,8 +14,7 @@ services:
       - story_service
   
   client:
-    image: client
-    
+    image: jaf107/client    
     build: ./client
     restart: unless-stopped
     ports:
@@ -69,7 +68,6 @@ services:
   storyobjectdb:
     image: minio/minio:latest
     restart: unless-stopped
-
     ports:
       - 9000:9000
       - 9001:9001
